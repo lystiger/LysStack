@@ -20,9 +20,10 @@ Read these files in order:
 2. `memory/principles.md`
 3. `operating_system/current_focus.md`
 4. `operating_system/active_task.md`
-5. The selected project's `architecture.md`, `constraints.md`, and
+5. The selected project's `agents.md`
+6. The selected project's `architecture.md`, `constraints.md`, and
    `decisions.md`
-6. Your assigned role in `agents/`
+7. Your assigned global role in `agents/`
 
 Read additional project files when relevant:
 
@@ -41,6 +42,9 @@ Only begin implementation when `operating_system/active_task.md`:
 - Defines acceptance criteria
 - Provides enough repository or source locations to find the work
 - Defines how the result will be verified
+
+Project `agents.md` files define standing responsibilities and project-specific
+focus. They do not assign executable work by themselves.
 
 If required information is missing, investigate what can be discovered from
 the repository. Ask Lystiger only when a missing decision would risk doing the

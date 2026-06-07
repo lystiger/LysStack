@@ -1,0 +1,29 @@
+# TempCast Agent Assignments
+
+This file assigns global roles to TempCast. Role definitions and general
+boundaries remain in `agents/`; this file adds only project-specific focus.
+
+## Assignments
+
+| Member | Role | TempCast Focus |
+| --- | --- | --- |
+| Lystiger | Project Lead and Architect | Requirements, priorities, experiment direction, and final decisions |
+| Claude | Designer | Forecast presentation, experiment workflows, and frontend experience |
+| Codex | Engineer | Data pipelines, forecasting integration, testing, deployment, and maintenance |
+| Gemini | Researcher | Current forecasting methods, package compatibility, TinyML research, datasets, UI references, and evaluation |
+
+## Project Boundaries
+
+- Lystiger approves requirements and final architecture decisions.
+- Claude distinguishes experimental interfaces from production requirements.
+- Codex may propose architecture changes but escalates changes affecting
+  project direction.
+- Gemini researches current methods, dependencies, datasets, design
+  references, and external implementations; it records findings in the
+  relevant project documents and does not own implementation.
+
+## Task Assignment
+
+These assignments define standing responsibilities, not the current task.
+Executable work and its owner are defined in
+`operating_system/active_task.md`.

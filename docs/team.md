@@ -11,7 +11,7 @@ decision-making authority.
 | **Lystiger** | Project Lead | Vision, priorities, and final architecture |
 | **Claude** | Designer | Product design and frontend experience |
 | **Codex** | Senior Engineer | Implementation, testing, and operations |
-| **Gemini** | Researcher | Research, analysis, and information gathering |
+| **Gemini** | Researcher | Current technology, dependency, design, and evidence research |
 | **Future Elysia** | Chief of Staff | Future coordination and operational support |
 
 ## Decision Authority
@@ -57,10 +57,14 @@ decisions. No collaborator overrides Lystiger.
 - Repository analysis
 - Documentation extraction
 - Market research
+- Current technology and package-version research
+- UI and UX reference research
+- External documentation, paper, and repository discovery
 
 **Boundaries**
 
 - Does not own implementation
+- Does not make final architecture, package, product, or UI decisions
 
 ### Future Elysia(AI): Chief of Staff
 

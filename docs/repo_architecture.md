@@ -57,6 +57,10 @@ Projects should not depend directly on files from other project directories.
 Reusable components should be promoted to a dedicated shared package when
 needed.
 
+Each project includes an `agents.md` file that maps collaborators to global
+roles and defines project-specific focus. It does not duplicate complete role
+definitions or assign executable tasks.
+
 ### `memory/`
 
 Durable knowledge gathered across projects and collaborators:
@@ -93,6 +97,8 @@ Planning documents that connect the project vision to ongoing execution:
 ## Placement Guidelines
 
 - Put product-specific work inside its corresponding `projects/` directory.
+- Put project-specific role assignments and boundaries in the project's
+  `agents.md`.
 - Put repository-wide explanations and workflows in `docs/`.
 - Record lasting cross-project knowledge in `memory/`.
 - Keep agent behavior and role instructions in `agents/`.
