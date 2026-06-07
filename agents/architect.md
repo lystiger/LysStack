@@ -21,3 +21,4 @@ Translate project vision and constraints into coherent technical architecture.
 - State assumptions and unresolved risks
 - Document major decisions and rejected alternatives
 - Prefer designs that are understandable, testable, and maintainable
+- Follow the task lifecycle and completion protocol in `docs/instructions.md`

@@ -15,3 +15,9 @@ LysStack helps coordinate coding agents, preserve decisions, document projects, 
 ## Core Idea
 
 AI assists. Humans decide.
+
+## Start Here
+
+New agents should begin with [`docs/start_here.md`](docs/start_here.md), then
+follow the active assignment in
+[`operating_system/active_task.md`](operating_system/active_task.md).

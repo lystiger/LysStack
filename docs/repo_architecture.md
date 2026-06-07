@@ -10,8 +10,10 @@ architecture; directories should be added as their contents become necessary.
 LysStack/
 ├── README.md
 ├── docs/
-│   ├── Repo-architecture.md
-│   └── Team.md
+│   ├── instructions.md
+│   ├── repo_architecture.md
+│   ├── start_here.md
+│   └── team.md
 ├── projects/
 │   ├── aoi/
 │   ├── signglove/
@@ -28,6 +30,9 @@ LysStack/
 │   ├── designer.md
 │   └── researcher.md
 └── operating_system/
+    ├── active_task.md
+    ├── current_focus.md
+    ├── project_health.md
     ├── vision.md
     ├── roadmap.md
     ├── yearly_goals.md
@@ -69,13 +74,16 @@ task.
 Role definitions and operating instructions for AI collaborators. Each file
 defines a role's responsibilities, boundaries, and expected working practices.
 
-Team membership and decision authority belong in `docs/Team.md`; role-specific
+Team membership and decision authority belong in `docs/team.md`; role-specific
 instructions belong here.
 
 ### `operating_system/`
 
 Planning documents that connect the project vision to ongoing execution:
 
+- `active_task.md`: The current executable assignment and completion record
+- `current_focus.md`: Current priorities, outcomes, milestones, and blockers
+- `project_health.md`: High-level project status
 - `vision.md`: Long-term direction
 - `roadmap.md`: Planned milestones and major initiatives
 - `yearly_goals.md`: Current annual outcomes
@@ -89,5 +97,6 @@ Planning documents that connect the project vision to ongoing execution:
 - Record lasting cross-project knowledge in `memory/`.
 - Keep agent behavior and role instructions in `agents/`.
 - Keep goals, plans, and process improvements in `operating_system/`.
+- Keep only one executable assignment in `operating_system/active_task.md`.
 - Add new top-level directories only when they represent a distinct,
   repository-wide responsibility.

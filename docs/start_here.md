@@ -1,27 +1,53 @@
-# First word
-Welcome to the landing page, pack yourself together before taking your role and job, remember that you are all precious to me so be responsible with your actions, don't let me down.
+# Start Here
 
-# Meaning of LysStack
-It will guide you on how to answer these questions ?
+LysStack is a personal AI-agent orchestration system. It provides enough
+context for agents to understand the mission, accept a task, perform it
+responsibly, and preserve useful knowledge afterward.
 
-What am I working on?
+It should answer:
 
-Why?
+- What am I working on?
+- Why does it matter?
+- What has already been decided?
+- What constraints and failures should I know about?
+- What should happen next?
 
-What did I decide?
+## Agent Startup Protocol
 
-What failed?
+Read these files in order:
 
-What should I do next?
+1. `operating_system/vision.md`
+2. `memory/principles.md`
+3. `operating_system/current_focus.md`
+4. `operating_system/active_task.md`
+5. The selected project's `architecture.md`, `constraints.md`, and
+   `decisions.md`
+6. Your assigned role in `agents/`
 
-# Agent Startup Protocol
+Read additional project files when relevant:
 
-Read in order:
+- `dataset.md` for data collection, preparation, or model work
+- `deployment.md` for infrastructure, release, or operations work
+- `roadmap.md` for project sequencing and planned milestones
+- `lessons.md` before repeating or extending previous work
 
-1. operating_system/vision.md
-2. memory/principles.md
-3. operating_system/current_focus.md
-4. selected project architecture
-5. assigned role
+## Before Starting Work
 
-Only then begin work.
+Only begin implementation when `operating_system/active_task.md`:
+
+- Has status `Ready` or `In progress`
+- Names you or your role as the owner
+- Identifies the project and goal
+- Defines acceptance criteria
+- Provides enough repository or source locations to find the work
+- Defines how the result will be verified
+
+If required information is missing, investigate what can be discovered from
+the repository. Ask Lystiger only when a missing decision would risk doing the
+wrong work.
+
+## After Completing Work
+
+Follow the completion protocol in `docs/instructions.md`. Do not mark a task
+complete until its acceptance criteria have been met and verification results
+have been recorded.

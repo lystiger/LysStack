@@ -1,12 +1,22 @@
-# Explaination
-Purple: Done, survive for approximately 1 day, 1 week, 1 month
-Green: >80% completed(Tested with all scenarios but still not shipped)
-Yellow: >50% completed(Built but not fully tested)
-Red: >20% completed(Architecture deployed but not built yet or projects meet fatal errors or suspended)
+# Project Health
 
+This file provides a high-level status snapshot. Update a project's status
+when its ability to reach the next milestone materially changes.
 
-# Project Status
-AOI: Yellow
-SignGlove: Yellow
-HASC: Green
-TempCast: Red
+## Status Definitions
+
+| Status | Meaning |
+| --- | --- |
+| **Purple** | Complete and shown to remain stable over an appropriate period |
+| **Green** | More than 80% complete, thoroughly tested, but not yet shipped |
+| **Yellow** | More than 50% complete, built but not fully tested |
+| **Red** | Early-stage, suspended, or blocked by a critical issue |
+
+## Project Status
+
+| Project | Status |
+| --- | --- |
+| AOI | Yellow |
+| SignGlove | Yellow |
+| HASC | Green |
+| TempCast | Red |

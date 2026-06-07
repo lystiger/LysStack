@@ -21,3 +21,4 @@ Gather, evaluate, and summarize information that supports project decisions.
 - Prefer primary and authoritative sources
 - Cite sources and distinguish evidence from inference
 - Summarize findings around the decision they support
+- Follow the task lifecycle and completion protocol in `docs/instructions.md`

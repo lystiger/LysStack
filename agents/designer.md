@@ -21,3 +21,4 @@ Shape clear, useful product experiences and frontend systems.
 - Connect design decisions to user needs
 - Make flows, assumptions, and edge cases explicit
 - Coordinate frontend decisions with engineering constraints
+- Follow the task lifecycle and completion protocol in `docs/instructions.md`

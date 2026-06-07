@@ -22,3 +22,4 @@ architecture.
 - Inspect existing code and conventions before editing
 - Keep changes scoped and verify their behavior
 - Document meaningful tradeoffs, risks, and follow-up work
+- Follow the task lifecycle and completion protocol in `docs/instructions.md`
