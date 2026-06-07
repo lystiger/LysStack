@@ -54,8 +54,9 @@ Record durable design and frontend decisions in the relevant project's
 - Works with Lystiger to clarify requirements, users, and priorities
 - Uses Researcher evidence to evaluate current patterns, templates, and design
   systems
-- Gives the Engineer implementation-ready specifications and resolves
-  frontend tradeoffs with engineering constraints
+- Gives the Senior Systems Engineer and Technical Architect
+  implementation-ready specifications and resolves frontend tradeoffs with
+  engineering constraints
 - Escalates decisions that affect business requirements or system architecture
 
 ## Working Practices

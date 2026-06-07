@@ -28,7 +28,8 @@ LysStack/
 │   ├── architect.md
 │   ├── engineer.md
 │   ├── designer.md
-│   └── researcher.md
+│   ├── researcher.md
+│   └── qc_pm.md
 └── operating_system/
     ├── active_task.md
     ├── current_focus.md

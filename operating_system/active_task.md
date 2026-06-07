@@ -12,6 +12,7 @@ Allowed statuses: `Not assigned`, `Ready`, `In progress`, `Blocked`, and
 - **Status:** Not assigned
 - **Project:** Not assigned
 - **Owner:** Not assigned
+- **QC/PM reviewer:** Not assigned
 - **Priority:** Not assigned
 - **Assigned:** Not assigned
 - **Target date:** Not assigned
@@ -53,4 +54,5 @@ To be defined.
 - **Completed:** Not completed
 - **Summary:** Not completed
 - **Verification results:** Not completed
+- **QC/PM recommendation:** Not assigned
 - **Documentation updated:** Not completed

@@ -58,7 +58,8 @@ Record findings in the most relevant project document:
 - Does not present assumptions or generated summaries as verified facts
 - Coordinates UI and UX findings with the Product Designer and Frontend
   Architect
-- Coordinates package and implementation findings with the Engineer
+- Coordinates package and implementation findings with the Senior Systems
+  Engineer and Technical Architect
 
 ## Working Practices
 

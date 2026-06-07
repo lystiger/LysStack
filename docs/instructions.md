@@ -11,6 +11,7 @@ project knowledge.
 | What task is assigned? | `operating_system/active_task.md` |
 | Who has standing responsibilities in a project? | `projects/<project>/agents.md` |
 | What role should the agent follow? | `agents/<role>.md` |
+| Who performs an assigned independent quality gate? | `agents/qc_pm.md` |
 | How is the project designed? | `projects/<project>/architecture.md` |
 | What limits the solution? | `projects/<project>/constraints.md` |
 | What has already been decided? | `projects/<project>/decisions.md` |
@@ -54,8 +55,10 @@ projects/<project>/
    records the results.
 5. **Document:** The agent updates relevant project decisions, lessons,
    architecture, or deployment documentation.
-6. **Complete:** The agent changes the task status to `Complete` only after all
-   acceptance criteria pass.
+6. **Quality gate:** When QC/PM is assigned, it independently reviews scope,
+   evidence, risks, documentation, and release readiness.
+7. **Complete:** The task changes to `Complete` only after all acceptance
+   criteria pass and any assigned quality gate is resolved.
 
 Use `Blocked` when work cannot continue. Record the blocker, what was tried,
 and the decision or resource needed to resume.
@@ -75,12 +78,22 @@ them to:
 
 - The Product Designer and Frontend Architect for UI, UX, design-system, and
   template evaluation
-- The Engineer for packages, repositories, implementation approaches, and
-  technical validation
+- The Senior Systems Engineer and Technical Architect for packages,
+  repositories, implementation approaches, and technical validation
 - Lystiger for requirements, priorities, and final architecture decisions
 
 Research recommendations do not authorize dependency changes, implementation,
 or final design decisions.
+
+## Quality Gate
+
+Assign QC/PM when a task has meaningful release, data, security, integration,
+operational, or cross-agent risk. Small low-risk tasks may complete without a
+separate QC/PM review when Lystiger does not require one.
+
+QC/PM provides a `Pass`, `Conditional pass`, or `Fail` recommendation with
+evidence. A failed gate returns defects to the appropriate owner. Lystiger
+retains final approval authority.
 
 ## Completion Protocol
 
@@ -88,6 +101,7 @@ Before marking an active task complete:
 
 - Confirm every acceptance criterion
 - Run the listed verification commands or explain why they could not run
+- Resolve any assigned QC/PM quality gate and record its recommendation
 - Record dated source links and version information for research-dependent work
 - Record significant technical decisions in the project's `decisions.md`
 - Record reusable project-specific lessons in the project's `lessons.md`

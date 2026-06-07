@@ -9,8 +9,9 @@ remain in `agents/`; this file adds only project-specific focus.
 | --- | --- | --- |
 | Lystiger | Project Lead and Architect | Business requirements, priorities, system direction, and final decisions |
 | Claude | Product Designer and Frontend Architect | Business workflows, information architecture, design system, and frontend architecture |
-| Codex | Engineer | Application systems, testing, deployment, operations, and maintenance |
+| Codex | Senior Systems Engineer and Technical Architect | Application systems, APIs, databases, technical architecture, testing, deployment, and operations |
 | Gemini | Researcher | Current business platforms, package compatibility, modern UI patterns, process research, and documentation extraction |
+| Future Elysia | QC/PM | Milestone coordination, workflow quality gates, risk tracking, and release-readiness review |
 
 ## Project Boundaries
 
@@ -18,10 +19,13 @@ remain in `agents/`; this file adds only project-specific focus.
 - Claude defines implementation-ready business workflows and frontend systems,
   then validates requirements with Lystiger.
 - Codex may propose architecture changes but escalates changes affecting
-  project direction.
+  project direction and does not approve its own implementation as the final
+  quality gate.
 - Gemini researches current platforms, dependencies, design references, and
   external implementations; it documents evidence and does not own
   implementation.
+- Future Elysia performs QC/PM duties only when assigned and gives
+  release-readiness recommendations to Lystiger.
 
 ## Task Assignment
 
