@@ -8,14 +8,15 @@ boundaries remain in `agents/`; this file adds only project-specific focus.
 | Member | Role | TempCast Focus |
 | --- | --- | --- |
 | Lystiger | Project Lead and Architect | Requirements, priorities, experiment direction, and final decisions |
-| Claude | Designer | Forecast presentation, experiment workflows, and frontend experience |
+| Claude | Product Designer and Frontend Architect | Forecast presentation, experiment workflows, design system, and frontend architecture |
 | Codex | Engineer | Data pipelines, forecasting integration, testing, deployment, and maintenance |
 | Gemini | Researcher | Current forecasting methods, package compatibility, TinyML research, datasets, UI references, and evaluation |
 
 ## Project Boundaries
 
 - Lystiger approves requirements and final architecture decisions.
-- Claude distinguishes experimental interfaces from production requirements.
+- Claude defines implementation-ready experiment flows and frontend systems,
+  while distinguishing experimental interfaces from production requirements.
 - Codex may propose architecture changes but escalates changes affecting
   project direction.
 - Gemini researches current methods, dependencies, datasets, design

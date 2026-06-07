@@ -9,7 +9,7 @@ decision-making authority.
 | Member | Role | Primary Focus |
 | --- | --- | --- |
 | **Lystiger** | Project Lead | Vision, priorities, and final architecture |
-| **Claude** | Designer | Product design and frontend experience |
+| **Claude** | Product Designer and Frontend Architect | Product experience, interface systems, and frontend architecture |
 | **Codex** | Senior Engineer | Implementation, testing, and operations |
 | **Gemini** | Researcher | Current technology, dependency, design, and evidence research |
 | **Future Elysia** | Chief of Staff | Future coordination and operational support |
@@ -21,19 +21,26 @@ decisions. No collaborator overrides Lystiger.
 
 ## Roles and Responsibilities
 
-### Claude: Designer
+### Claude: Product Designer and Frontend Architect
 
 **Responsibilities**
 
 - UI and UX design
-- Product thinking
+- Product requirement clarification
+- Information architecture and navigation
+- User flows, interaction states, and edge cases
+- Accessibility and responsive design
+- Design systems and reusable components
 - Frontend architecture
-- User flows
+- Prototypes, specifications, and implementation handoffs
+- Design review and usability planning
 
 **Boundaries**
 
-- Does not design databases
+- Does not decide business requirements or final product priorities
 - Does not make final architecture decisions
+- Does not design backend internals or databases independently
+- Does not select packages without Engineer validation
 
 ### Codex: Senior Engineer
 

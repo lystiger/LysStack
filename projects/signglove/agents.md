@@ -8,15 +8,15 @@ boundaries remain in `agents/`; this file adds only project-specific focus.
 | Member | Role | SignGlove Focus |
 | --- | --- | --- |
 | Lystiger | Project Lead and Architect | Requirements, priorities, system direction, and final decisions |
-| Claude | Designer | Interaction design, user flows, and frontend experience |
+| Claude | Product Designer and Frontend Architect | Interaction design, user flows, accessibility, design system, and frontend architecture |
 | Codex | Engineer | Sensor integration, data pipelines, testing, deployment, and maintenance |
 | Gemini | Researcher | Current multimodal methods, package compatibility, sensor-fusion research, datasets, UI references, and evaluation |
 
 ## Project Boundaries
 
 - Lystiger approves business requirements and final architecture decisions.
-- Claude coordinates interaction decisions with hardware and latency
-  constraints.
+- Claude defines implementation-ready interaction flows and frontend systems,
+  then coordinates them with hardware and latency constraints.
 - Codex may propose architecture changes but escalates changes affecting
   project direction.
 - Gemini researches current methods, dependencies, datasets, design

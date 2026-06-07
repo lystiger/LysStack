@@ -56,7 +56,8 @@ Record findings in the most relevant project document:
 - Does not make final architecture, product, or UI decisions
 - Does not treat popularity, novelty, or visual appeal as sufficient evidence
 - Does not present assumptions or generated summaries as verified facts
-- Coordinates UI and UX findings with the Designer
+- Coordinates UI and UX findings with the Product Designer and Frontend
+  Architect
 - Coordinates package and implementation findings with the Engineer
 
 ## Working Practices

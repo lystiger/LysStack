@@ -8,14 +8,15 @@ remain in `agents/`; this file adds only project-specific focus.
 | Member | Role | AOI Focus |
 | --- | --- | --- |
 | Lystiger | Project Lead and Architect | Requirements, priorities, system direction, and final decisions |
-| Claude | Designer | Inspection workflows, operator experience, and frontend architecture |
+| Claude | Product Designer and Frontend Architect | Inspection workflows, operator experience, design system, and frontend architecture |
 | Codex | Engineer | Model integration, backend systems, testing, deployment, and maintenance |
 | Gemini | Researcher | Current computer-vision methods, package compatibility, datasets, evaluation, UI references, and external implementations |
 
 ## Project Boundaries
 
 - Lystiger approves business requirements and final architecture decisions.
-- Claude coordinates frontend decisions with AOI technical constraints.
+- Claude defines implementation-ready operator workflows and frontend systems,
+  then coordinates them with AOI technical constraints.
 - Codex may propose architecture changes but escalates changes affecting
   project direction.
 - Gemini researches current methods, dependencies, datasets, design

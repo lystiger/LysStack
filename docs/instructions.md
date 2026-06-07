@@ -73,7 +73,8 @@ When research informs another agent's work, the Researcher should provide:
 The Researcher records findings in the relevant project documents, then hands
 them to:
 
-- The Designer for UI, UX, design-system, and template evaluation
+- The Product Designer and Frontend Architect for UI, UX, design-system, and
+  template evaluation
 - The Engineer for packages, repositories, implementation approaches, and
   technical validation
 - Lystiger for requirements, priorities, and final architecture decisions
