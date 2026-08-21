@@ -1,44 +1,37 @@
 # LysStack
 
-My personal AI-agent orchestration system for engineering, research, and long-term project memory.
+LysStack is a control-plane repository for engineering context, policy, task
+state, decisions, and long-term memory. It does not execute coding agents or
+contain product source code.
 
-LysStack helps coordinate coding agents, preserve decisions, document projects, and turn AI tools into a reusable engineering workflow.
+Hermes is the execution runtime. It consumes a bounded selection of LysStack
+context, governs workers and Git activity in target product repositories, and
+records verification evidence.
 
-## Purpose
+```text
+Human
+  ↓
+LysStack
+  ↓
+Hermes
+  ↓
+Workers
+  ↓
+Product repositories
+```
 
-- Preserve project memory
-- Coordinate Claude, Codex, Gemini, and future local agents
-- Standardize prompts and roles
-- Track architecture decisions
-- Build an external brain for long-term engineering growth
-
-## Core Idea
-
-AI assists. Humans decide.
+**LysStack never executes agents. Hermes executes agents.** Human review and
+approval remain required before merge.
 
 ## Start Here
 
-New agents should begin with [`docs/start_here.md`](docs/start_here.md), then
-follow the active assignment in
+Begin with [`AGENTS.md`](AGENTS.md), then follow
+[`docs/start_here.md`](docs/start_here.md) and the assignment in
 [`operating_system/active_task.md`](operating_system/active_task.md).
 
-AI coding agents should read [`AGENTS.md`](AGENTS.md) for the entry point.
+The canonical governed delivery process is documented in
+[`operating_system/hermes-delivery.md`](operating_system/hermes-delivery.md).
 
-## AI Coding Workflow
-
-LysStack runs a GitHub issue-to-PR pipeline, one agent per stage:
-
-| Stage | Agent |
-| --- | --- |
-| Write the issue | Claude |
-| Plan the implementation | DeepSeek |
-| Write the code locally | Qwen + Aider |
-| Review the change | Codex |
-| Merge | Lystiger (human, final authority) |
-
-The process and example commands are in
-[`operating_system/github-issue-to-pr.md`](operating_system/github-issue-to-pr.md).
-Helper scripts live in [`scripts/`](scripts/).
-
-**AI assists. Humans decide.** No agent merges — human approval is always
-required before merge.
+The earlier Claude → DeepSeek → Qwen/Aider → Codex issue-to-PR process and its
+helper scripts remain available as an
+[`optional legacy workflow`](operating_system/github-issue-to-pr.md).

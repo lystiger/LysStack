@@ -1,7 +1,7 @@
 # Working With LysStack
 
-This document defines how agents receive work, execute it, and preserve useful
-project knowledge.
+This document defines how work is represented in LysStack, executed through
+Hermes, and preserved as useful project knowledge.
 
 ## Sources of Truth
 
@@ -46,18 +46,19 @@ projects/<project>/
 
 1. **Define:** Lystiger or an authorized coordinator fills in
    `operating_system/active_task.md`.
-2. **Accept:** The assigned agent reads the project's `agents.md` and its
-   global role, confirms that the task is actionable, and
-   changes its status to `In progress`.
-3. **Execute:** The agent performs the work within the documented constraints
-   and authority boundaries.
-4. **Verify:** The agent runs the commands or checks listed in the task and
+2. **Prepare:** Select bounded project context and pin the target repository
+   base SHA in a Hermes sprint specification.
+3. **Accept:** Hermes obtains `DRY_RUN_READY`, then changes the task status to
+   `In progress` when real execution begins.
+4. **Execute:** Hermes governs BUILDER, HARDENER, and VERIFIER phases within
+   documented constraints and authority boundaries.
+5. **Verify:** Hermes runs the deterministic commands listed in the task and
    records the results.
-5. **Document:** The agent updates relevant project decisions, lessons,
+6. **Document:** Update relevant project decisions, lessons,
    architecture, or deployment documentation.
-6. **Quality gate:** When QC/PM is assigned, it independently reviews scope,
+7. **Quality gate:** When QC/PM is assigned, it independently reviews scope,
    evidence, risks, documentation, and release readiness.
-7. **Complete:** The task changes to `Complete` only after all acceptance
+8. **Complete:** The task changes to `Complete` only after all acceptance
    criteria pass and any assigned quality gate is resolved.
 
 Use `Blocked` when work cannot continue. Record the blocker, what was tried,

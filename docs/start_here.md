@@ -1,8 +1,8 @@
 # Start Here
 
-LysStack is a personal AI-agent orchestration system. It provides enough
-context for agents to understand the mission, accept a task, perform it
-responsibly, and preserve useful knowledge afterward.
+LysStack is the control plane for project context, policy, task state,
+decisions, and memory. Hermes is the runtime that executes agents against
+product repositories.
 
 It should answer:
 
@@ -12,46 +12,44 @@ It should answer:
 - What constraints and failures should I know about?
 - What should happen next?
 
-## Agent Startup Protocol
+## Startup Protocol
 
-Read these files in order:
+Inspect these files in order:
 
-1. `operating_system/vision.md`
-2. `memory/principles.md`
-3. `operating_system/current_focus.md`
-4. `operating_system/active_task.md`
-5. The selected project's `agents.md`
-6. The selected project's `architecture.md`, `constraints.md`, and
-   `decisions.md`
-7. Your assigned global role in `agents/`
+1. [`AGENTS.md`](../AGENTS.md)
+2. [`operating_system/current_focus.md`](../operating_system/current_focus.md)
+3. [`operating_system/active_task.md`](../operating_system/active_task.md)
+4. `projects/<project>/architecture.md`
+5. `projects/<project>/constraints.md`
+6. `projects/<project>/decisions.md`
+7. [`operating_system/hermes-delivery.md`](../operating_system/hermes-delivery.md)
 
 Read additional project files when relevant:
 
+- `agents.md` for project-specific workflow-role interpretation
+- `roadmap.md` for sequencing and acceptance criteria
+- `lessons.md` before repeating or extending previous work
 - `dataset.md` for data collection, preparation, or model work
 - `deployment.md` for infrastructure, release, or operations work
-- `roadmap.md` for project sequencing and planned milestones
-- `lessons.md` before repeating or extending previous work
 
-## Before Starting Work
+Repository-wide principles and working rules remain in
+[`memory/principles.md`](../memory/principles.md) and
+[`docs/instructions.md`](instructions.md).
 
-Only begin implementation when `operating_system/active_task.md`:
+## Before Execution
 
-- Has status `Ready` or `In progress`
-- Names you or your role as the owner
-- Identifies the project and goal
-- Defines acceptance criteria
-- Provides enough repository or source locations to find the work
-- Defines how the result will be verified
+Hermes execution begins only when `operating_system/active_task.md`:
 
-Project `agents.md` files define standing responsibilities and project-specific
-focus. They do not assign executable work by themselves.
+- Has status `Ready`
+- Identifies the project, goal, target repository, and pinned base SHA
+- Defines acceptance criteria and verification
+- Provides enough bounded context to govern the work
 
-If required information is missing, investigate what can be discovered from
-the repository. Ask Lystiger only when a missing decision would risk doing the
-wrong work.
+Project `agents.md` files describe standing workflow responsibilities. They do
+not execute workers or assign work independently.
 
-## After Completing Work
+## After Execution
 
 Follow the completion protocol in `docs/instructions.md`. Do not mark a task
-complete until its acceptance criteria have been met and verification results
-have been recorded.
+complete until its acceptance criteria and deterministic verification have
+been recorded and the human has made the required promotion decision.
