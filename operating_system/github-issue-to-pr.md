@@ -1,8 +1,9 @@
-# GitHub Issue-to-PR Workflow
+# Legacy GitHub Issue-to-PR Workflow
 
-This is LysStack's AI-assisted coding workflow. It moves a change from idea to
-merged code through five stages, one owner per stage. **No agent merges. Human
-approval is always required before merge.**
+This optional legacy workflow predates Hermes governed delivery. It remains
+available for specialist use, but it is not LysStack's canonical execution
+pipeline. See [Hermes Governed Delivery](hermes-delivery.md) for the current
+workflow. **No agent merges. Human approval is always required before merge.**
 
 ## Roles
 

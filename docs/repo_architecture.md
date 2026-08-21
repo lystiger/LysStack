@@ -1,7 +1,8 @@
 # Repository Architecture
 
-LysStack is an orchestration workspace for projects, AI collaborators, shared
-knowledge, and long-term planning. The structure below is the target
+LysStack is a control-plane workspace for bounded project context, policy,
+task state, shared knowledge, and long-term planning. Hermes, not LysStack,
+executes and orchestrates agents. The structure below is the target
 architecture; directories should be added as their contents become necessary.
 
 ## Directory Structure
@@ -51,8 +52,9 @@ workflows.
 
 ### `projects/`
 
-Independent product and research projects. Each project owns its source code,
-tests, documentation, dependencies, and project-specific configuration.
+Context bundles for independent product and research projects. Product source,
+tests, dependencies, and runtime configuration remain in external product
+repositories.
 
 Projects should not depend directly on files from other project directories.
 Reusable components should be promoted to a dedicated shared package when
@@ -98,6 +100,7 @@ Planning documents that connect the project vision to ongoing execution:
 ## Placement Guidelines
 
 - Put product-specific work inside its corresponding `projects/` directory.
+- Put product source code in its external product repository, not LysStack.
 - Put project-specific role assignments and boundaries in the project's
   `agents.md`.
 - Put repository-wide explanations and workflows in `docs/`.
