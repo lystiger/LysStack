@@ -27,8 +27,12 @@ The architecture is a modular monolith:
 - Database changes use migrations.
 - The backend remains contract-first.
 
-The relevant implemented module is `catalogue/`. The first new business module
-is `inquiries/`.
+Implemented modules include:
+- Backend: `catalogue/`, `auth/`, `staff/`, `audit/`, `media/`, and `inquiries/`
+  (public submission, snapshots, reference generation, mailers).
+- Frontend: Next.js (App Router), TypeScript, Tailwind CSS, TanStack Query,
+  bilingual routing (`/vi`, `/en`), inquiry basket, public inquiry flow, and
+  staff admin foundation (`/admin/products`, `/admin/categories`).
 
 ## Repository Boundary
 
@@ -36,6 +40,11 @@ Product source lives in `lystiger/Unigreen`. LysStack stores only context,
 policy, decisions, task state, and lessons. Hermes performs execution against
 the product repository.
 
-## First Experiment Scope
+## Current Slice Scope (UG-001)
 
-The first Hermes experiment is backend only. It includes no frontend work.
+`UG-001` is a full-stack slice:
+- Backend: staff-authorized inquiry list, detail, filtering/search, status
+  transitions, staff assignment, internal notes, and audit events.
+- Frontend: staff inquiry review workspace under `/admin/inquiries` hosted in
+  `AdminShell`.
+

@@ -1,40 +1,51 @@
 # Unigreen Constraints
 
-## Product Constraints
+## Product Constraints (UG-001)
 
-- The first experiment is backend only.
-- Do not build the entire CRM flow.
-- Do not build quotation, purchase-order, or sales-order functionality.
-- Do not implement a frontend inquiry basket.
-- Do not implement email acknowledgement or Redis rate limiting yet.
-- Do not add ERP functionality, microservices, or Kubernetes.
+- Scope is full-stack: FastAPI backend and Next.js admin frontend.
+- Explicit non-goals (deferred to later milestones):
+  - No quotation creation or quotation line editing.
+  - No quotation pricing, margin calculation, or discounts.
+  - No quotation PDF generation.
+  - No customer quotation acceptance or rejection flow.
+  - No purchase-order (PO) upload or processing.
+  - No sales-order creation or conversion.
+  - No shipment, inventory, or delivery fulfilment.
+  - No EasyBooks accounting integration.
+  - No UniOps platform/observability integration.
+  - No autonomous AI business decisions or automated customer responses.
+  - No architectural rewrites, microservices, or external workflow engines.
 - Avoid unrelated refactoring.
 
 ## Inquiry Domain Constraints
 
-Public submission uses `POST /api/v1/public/inquiries`.
+### Public Submission (Preserved Invariants)
+- Public submission uses `POST /api/v1/public/inquiries`.
+- Requires at least one line with positive quantity and valid unit.
+- Referenced products must exist and be published; product snapshots are captured.
+- Generates human-readable reference `UG-INQ-YYYY-NNNNNN`.
+- Enforces `Idempotency-Key` deduplication and atomic persistence.
+- Original customer submission data is strictly immutable.
 
-An inquiry:
-
-- Requires at least one line.
-- References catalogue products, and only published products may be used.
-- Requires a positive quantity and a unit.
-- Supports standard and/or OEM/private-label requirements.
-- Generates a human-readable reference in the form `UG-INQ-YYYY-NNNNNN`.
-
-Submission must support `Idempotency-Key`. Repeated use of the same valid key
-must not create duplicate inquiries.
-
-Inquiry and inquiry lines must persist atomically: both persist or neither
-persists. Product information required for historical meaning must be
-snapshotted so later catalogue edits do not rewrite inquiry history. The
-original customer submission remains immutable.
+### Staff Review Operations (UG-001)
+- Staff actions must never mutate or overwrite original customer-submitted data
+  (contact details, line items, customer notes, product snapshots).
+- Staff-managed operational metadata (status, assignment, internal notes) must
+  remain cleanly isolated from customer submission data.
+  - Specifically, staff internal notes must be stored in a dedicated notes
+    relation/table and not overwrite `inquiries.notes` (customer notes).
+- Operational status transitions must adhere to valid inquiry statuses.
+- Staff assignment must reference valid, active `StaffUser` records.
+- All staff operational mutations must emit structured `AuditEvent` records.
+- Endpoints must enforce staff authentication and inquiry permissions
+  (`inquiry:read`, `inquiry:write`).
 
 ## Engineering Constraints
 
 - Follow established Unigreen module conventions where sensible.
-- Use existing SQLAlchemy 2.x, Alembic, and test patterns.
-- Add automated tests for new behavior and preserve existing tests.
-- Keep the OpenAPI contract synchronized.
-- Do not perform an unrelated architecture rewrite.
+- Use existing SQLAlchemy 2.x, Alembic migrations, and test patterns.
+- Staff frontend components must integrate cleanly with `AdminShell`.
+- Keep the OpenAPI contract and frontend types (`lib/api/schema.d.ts`)
+  synchronized.
+- Preserve full test and lint suites across both backend and frontend.
 - Do not place secrets in context files.

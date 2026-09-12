@@ -45,3 +45,28 @@
   decisions, active task state, and lessons. It does not invoke or orchestrate
   coding workers.
 - **Invariant:** LysStack never executes agents. Hermes executes agents.
+
+## D007 — Staff Inquiry Review Scope (UG-001)
+
+- **Date:** 2026-09-12
+- **Status:** Accepted
+- **Problem:** Inquiries submitted by customers lack an internal operational
+  workflow for review, qualification, assignment, and internal notes before
+  quotation generation can occur.
+- **Decision:** The next governed vertical slice (`UG-001`) implements the
+  Staff Inquiry Review Workspace across backend and admin frontend.
+- **Invariants & Domain Rules:**
+  - *Customer Submission Immutability:* Original customer submission data
+    (contact info, customer notes, line items, snapshots) is immutable and
+    must not be altered by staff actions.
+  - *Internal Notes Isolation:* Staff internal notes must be stored separately
+    from the customer's submitted `inquiries.notes` field (e.g. dedicated
+    internal notes relation with staff author and timestamps).
+  - *Permissions & Authorization:* Add `inquiry:read` and `inquiry:write` to the
+    `Permission` enum and enforce them across all staff inquiry routes.
+  - *Audit Trail:* Staff mutations (status transitions, staff assignment,
+    internal notes) must emit structured `AuditEvent` records.
+  - *Explicit Non-Goals:* Quotations, pricing, PDFs, POs, sales orders,
+    fulfilment, ERP, and UniOps/EasyBooks integrations are deferred to later
+    milestones.
+
