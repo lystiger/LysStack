@@ -37,8 +37,9 @@ Implemented modules include:
 ## Repository Boundary
 
 Product source lives in `lystiger/Unigreen`. LysStack stores only context,
-policy, decisions, task state, and lessons. Hermes performs execution against
-the product repository.
+policy, decisions, human-authored task briefs, and lessons. Hermes owns
+canonical job/task state and performs execution against the product
+repository.
 
 ## Current Slice Scope (UG-001)
 

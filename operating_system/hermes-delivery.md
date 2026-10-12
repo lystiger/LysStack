@@ -1,7 +1,8 @@
 # Hermes Governed Delivery
 
-LysStack is the context and policy control plane. Hermes is the execution
-runtime. **LysStack never executes agents. Hermes executes agents.**
+LysStack provides engineering knowledge, bounded context, and policy. Hermes
+is the authoritative execution runtime and owns canonical job/task state,
+scheduling, and agent execution. LysStack is not a runtime scheduler.
 
 ## Workflow
 

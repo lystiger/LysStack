@@ -1,8 +1,9 @@
 # Start Here
 
-LysStack is the control plane for project context, policy, task state,
-decisions, and memory. Hermes is the runtime that executes agents against
-product repositories.
+LysStack holds engineering knowledge, bounded project context, policy,
+decisions, human-authored task briefs, and long-term memory. Hermes is the
+authoritative runtime that owns canonical job/task state and executes agents
+against product repositories.
 
 It should answer:
 
@@ -38,7 +39,9 @@ Repository-wide principles and working rules remain in
 
 ## Before Execution
 
-Hermes execution begins only when `operating_system/active_task.md`:
+`operating_system/active_task.md` is a human-authored brief for Hermes; it does
+not store Hermes runtime job/task state. Start Hermes only when the brief meets
+these conditions:
 
 - Has status `Ready`
 - Identifies the project, goal, target repository, and pinned base SHA

@@ -42,9 +42,9 @@
 
 - **Status:** Accepted
 - **Decision:** LysStack stores project context, policies, constraints,
-  decisions, active task state, and lessons. It does not invoke or orchestrate
-  coding workers.
-- **Invariant:** LysStack never executes agents. Hermes executes agents.
+  decisions, human-authored task briefs, and lessons. Hermes owns canonical
+  runtime job/task state and execution scheduling.
+- **Invariant:** LysStack does not execute agents or schedule runtime jobs.
 
 ## D007 — Staff Inquiry Review Scope (UG-001)
 

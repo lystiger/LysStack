@@ -1,8 +1,9 @@
 # Repository Architecture
 
-LysStack is a control-plane workspace for bounded project context, policy,
-task state, shared knowledge, and long-term planning. Hermes, not LysStack,
-executes and orchestrates agents. The structure below is the target
+LysStack is the engineering knowledge and bounded-context workspace for
+project policy, decisions, human-authored task briefs, shared knowledge, and
+long-term planning. Hermes owns runtime job/task state, scheduling, and agent
+execution; LysStack is not a scheduler. The structure below is the target
 architecture; directories should be added as their contents become necessary.
 
 ## Directory Structure
@@ -88,7 +89,8 @@ instructions belong here.
 
 Planning documents that connect the project vision to ongoing execution:
 
-- `active_task.md`: The current executable assignment and completion record
+- `active_task.md`: The human-authored task brief and outcome notes; canonical
+  runtime job/task state belongs to Hermes
 - `current_focus.md`: Current priorities, outcomes, milestones, and blockers
 - `project_health.md`: High-level project status
 - `vision.md`: Long-term direction

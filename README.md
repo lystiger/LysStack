@@ -1,12 +1,14 @@
 # LysStack
 
-LysStack is a control-plane repository for engineering context, policy, task
-state, decisions, and long-term memory. It does not execute coding agents or
-contain product source code.
+LysStack is the engineering knowledge and bounded-context repository for
+project policy, decisions, constraints, human-authored task briefs, lessons,
+and long-term memory. It does not execute agents or schedule runtime jobs, and
+it does not contain product source code.
 
-Hermes is the execution runtime. It consumes a bounded selection of LysStack
-context, governs workers and Git activity in target product repositories, and
-records verification evidence.
+Hermes is the authoritative engineering execution runtime. It consumes a
+bounded selection of LysStack context and owns job/task state, orchestration,
+agent execution, worktrees, verification, event history, recovery, and provider
+capacity handling. LysControl presents Hermes through its REST/SSE API.
 
 ```text
 Human
