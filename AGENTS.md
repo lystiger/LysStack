@@ -71,15 +71,13 @@ tests, and scope creep.
 
 ## Grill-Me Mode
 
-Run grill-me mode before drafting any big task. A task is big when it spans
-more than one module or repository, changes an API or data model, or has more
-than about five acceptance criteria.
+Run grill-me before drafting any big task. A task is big when it spans more than one module or repository, changes an API or data model, or has more than about five acceptance criteria. The method follows Matt Pocock's grilling skill (github.com/mattpocock/skills).
 
-- Ask questions in batches of at most five, covering the goal, non-goals,
-  acceptance criteria, constraints, verification, and risks.
-- Record each answer as a decision with its source. An answer of "you decide"
-  is recorded as an assumption.
-- Cap grill-me at two rounds, then draft the brief.
+- **Frontier rounds.** Each round asks every question whose prerequisites are settled. Number them, and give each a recommended answer. Lystiger replies "yes" to take all the recommendations, or names the numbers to change. Questions that depend on an open one wait for a later round.
+- **Facts first.** Before asking, look things up with the tools: decision_search, lysstack_read, repo_state, agent_options, usage_analysis. Ask only decisions, never facts.
+- **Record as you go.** Each settled answer goes into the brief's Decisions section, with its source (Lystiger, or the fact that settled it). Nothing is written to a project decisions.md until Lystiger promotes it.
+- **Stop when the frontier is empty and Lystiger says "agreed".** Then build the brief, save it as a draft, and run the brief check. Do not act on the plan before that confirmation.
+- **Safety cap.** At six rounds, stop and list what is still open. This is a warning, not a silent end.
 
 ## Task Lifecycle
 
