@@ -42,6 +42,7 @@ can change without redefining a role.
 - **VERIFIER:** independent adversarial evaluation without modifying product
   source. Classifies every acceptance criterion as `PASS`, `FAIL`, or
   `UNPROVEN`. Its verdict is reasoning evidence, not deterministic proof.
+- **SECURITY:** finds injection, unauthorized access, secret leaks, data exposure and dependency risk in a change, and reports each with evidence and a suggested fix. Read-only: it does not edit product source, uses no network except the dependency advisory check, and runs no exploits. Its checks are deterministic (secret scan, static analysis, dependency audit), each reported as PASS, FAIL or UNPROVEN. HARDENER fixes; Lystiger decides.
 - **Lystiger (the human):** reviews the integration diff, handoffs, deterministic checks, and
   verifier assessment, then decides whether to promote.
 
