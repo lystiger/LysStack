@@ -1,23 +1,22 @@
 # LysStack
 
-LysStack is the engineering knowledge and bounded-context repository for
-project policy, decisions, constraints, human-authored task briefs, lessons,
-and long-term memory. It does not execute agents or schedule runtime jobs, and
-it does not contain product source code.
+LysStack is the engineering knowledge and brief repository for the Hermes
+stack: project policy, decisions, constraints, lessons, human-authored task
+briefs, and long-term memory. It does not execute agents or schedule jobs, and
+it contains no product source code.
 
-Hermes is the authoritative engineering execution runtime. It consumes a
-bounded selection of LysStack context and owns job/task state, orchestration,
-agent execution, worktrees, verification, event history, recovery, and provider
-capacity handling. LysControl presents Hermes through its REST/SSE API.
+Hermes is the execution runtime. It takes a brief, runs the BUILDER, HARDENER
+and VERIFIER phases against a product repository, and records job and task
+state and run evidence. LysControl presents Hermes through its REST/SSE API.
 
 ```text
 Human
   ↓
-LysStack
+LysStack (brief)
   ↓
 Hermes
   ↓
-Workers
+Workers (BUILDER, HARDENER, VERIFIER)
   ↓
 Product repositories
 ```
@@ -27,13 +26,13 @@ approval remain required before merge.
 
 ## Start Here
 
-Begin with [`AGENTS.md`](AGENTS.md), then follow
-[`docs/start_here.md`](docs/start_here.md) and the assignment in
+Read [`AGENTS.md`](AGENTS.md) first. It holds the rules, roles, task lifecycle,
+and decision recording. Then read
+[`operating_system/current_focus.md`](operating_system/current_focus.md) and
 [`operating_system/active_task.md`](operating_system/active_task.md).
 
-The canonical governed delivery process is documented in
+The delivery process is in
 [`operating_system/hermes-delivery.md`](operating_system/hermes-delivery.md).
 
-The earlier Claude → DeepSeek → Qwen/Aider → Codex issue-to-PR process and its
-helper scripts remain available as an
-[`optional legacy workflow`](operating_system/github-issue-to-pr.md).
+Older planning documents, the legacy issue-to-PR workflow, the old agent role
+files, and the four inactive projects are in [`archive/`](archive/).

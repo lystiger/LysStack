@@ -39,7 +39,6 @@ later quotation creation
 - `projects/unigreen/architecture.md`
 - `projects/unigreen/constraints.md`
 - `projects/unigreen/decisions.md`
-- `projects/unigreen/agents.md`
 - `projects/unigreen/roadmap.md`
 - `operating_system/active_task.md`
 
