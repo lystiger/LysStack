@@ -70,3 +70,14 @@
     fulfilment, ERP, and UniOps/EasyBooks integrations are deferred to later
     milestones.
 
+
+### Decision: Environments — production on the cloud server, staging on the workstation
+
+- **Date:** 2026-10-21
+- **Source:** human (Lystiger)
+- **Problem:** Where do production and staging run, and how are trials done before a change reaches production?
+- **Decision:** Production runs on the 2 vCPU, 1.5 GB RAM, 40 GB Ubuntu 22.04 cloud server. Staging runs on Lystiger's workstation with the same compose layout, set to the staging environment, with its own database and secrets. Playwright trials run against staging. Nothing reaches production until Lystiger merges to `main` and deploys by hand.
+- **Reason:** A single small server cannot host both safely (memory headroom for trials, and isolation of data). The workstation gives room for staging and trials.
+- **Rejected:** Staging and production on one server; running trials against production.
+- **Status:** accepted
+- **Open:** a rollback snapshot on the cloud server before each release; a firewall and non-root deploy user on the cloud server (recommended, not yet confirmed).
