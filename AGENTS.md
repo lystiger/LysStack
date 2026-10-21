@@ -42,7 +42,7 @@ can change without redefining a role.
 - **VERIFIER:** independent adversarial evaluation without modifying product
   source. Classifies every acceptance criterion as `PASS`, `FAIL`, or
   `UNPROVEN`. Its verdict is reasoning evidence, not deterministic proof.
-- **Human:** reviews the integration diff, handoffs, deterministic checks, and
+- **Lystiger (the human):** reviews the integration diff, handoffs, deterministic checks, and
   verifier assessment, then decides whether to promote.
 
 Current preferred workers: BUILDER runs on Antigravity, HARDENER on Claude,
@@ -67,6 +67,7 @@ tests, and scope creep.
 6. Mark anything unverified as `UNPROVEN` rather than guessing.
 7. Never write secrets, credentials, or private data into the repository.
 8. Stop and report when blocked or when a round cap is reached. Do not loop.
+9. Address the user as Lystiger. Do not call the user "the human" or "a human" in messages to them. The word "human" stays only as a role name in governance text.
 
 ## Grill-Me Mode
 
