@@ -5,7 +5,7 @@ This file is the source of truth for the current executable assignment.
 ## Assignment
 
 - **Task ID:** UG-001
-- **Status:** Ready
+- **Status:** In progress — merged, verification UNPROVEN (see Completion Record)
 - **Project:** Unigreen
 - **Owner:** Hermes
 - **QC/PM reviewer:** VERIFIER
@@ -150,12 +150,23 @@ git diff --exit-code lib/api/schema.d.ts
 
 ## Blockers
 
-- None recorded. Target repository working tree is clean and baselined at `069aed0630f3d121cdf28bec03f68bc99cfb8123`.
+- Completion is blocked on evidence, not on work: no verifier verdict or
+  deterministic verification result for UG-001 is recorded in LysStack or in
+  Hermes run reports. Needed: run the Verification commands on Unigreen `main`
+  and record the results here, then Lystiger decides on `Complete`.
 
 ## Completion Record
 
-- **Completed:** Not completed
-- **Summary:** UG-001 context prepared in LysStack. Ready for Hermes sprint specification and dry-run preflight.
-- **Verification results:** Not run.
-- **QC/PM recommendation:** Pending execution.
+- **Completed:** Not completed (checked 2026-10-22)
+- **Summary:** The UG-001 work is merged to Unigreen `main` via PR #24
+  (`f1b13a1`, 2026-09-12): BUILDER phase `b3ca198` (antigravity), HARDENER
+  phase `2cc9c4e` (claude), on top of the pinned base `069aed0`. Staff inquiry
+  routes, pages and tests exist (`backend/src/unigreen/inquiries/staff_router.py`,
+  `backend/tests/test_staff_inquiries.py`, `frontend/app/admin/inquiries/`).
+  Unigreen `main` has since moved on (PR #25 product master, PR #26 compose).
+- **Verification results:** UNPROVEN. No VERIFIER verdict, deterministic check
+  output, or Hermes UG-001 sprint spec or run report was found. The check on
+  2026-10-22 could not run the suite locally (no `uv` on this machine).
+- **QC/PM recommendation:** Run the Verification commands on Unigreen `main`,
+  record them, then decide on `Complete`.
 - **Documentation updated:** LysStack governance updated for UG-001 baseline; predecessor milestone archived in `projects/unigreen/roadmap.md`.

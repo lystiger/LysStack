@@ -29,8 +29,11 @@ run evidence. Human approval is required before any merge, push, or deploy.
 
 ## Roles
 
-Roles describe responsibilities. They are not tied to a provider, and providers
-can change without redefining a role.
+Roles describe responsibilities. A role belongs to a sprint phase, set by the
+`role` field in the Hermes sprint spec, not to an agent or provider. Any agent
+can play any role, a sprint can repeat a role (for example two HARDENER phases
+in a parallel group), and one agent can run several phases. Hermes accepts
+exactly these four roles (`builder`, `hardener`, `verifier`, `security`).
 
 - **BUILDER:** implements the acceptance criteria with minimal scope. Inspects
   existing patterns first, adds migrations and tests when required, syncs the
@@ -47,7 +50,9 @@ can change without redefining a role.
   verifier assessment, then decides whether to promote.
 
 Current preferred workers: BUILDER runs on Antigravity, HARDENER on Claude,
-VERIFIER on Codex. Hermes records which provider ran each phase.
+VERIFIER on Codex. This is a default for writing specs, not a binding: Hermes
+records which agent ran each phase, and LysControl shows the role on the phase,
+never as a fixed label on the agent.
 
 Unigreen focus for the roles: Builder must not redesign the backend. Hardener
 looks at transaction boundaries, idempotency, duplicate and race behavior,

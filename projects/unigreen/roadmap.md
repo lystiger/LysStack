@@ -4,6 +4,10 @@
 
 **UG-001 — Staff Inquiry Review Workspace**
 
+- **Status:** Merged to `main` via PR #24 (`f1b13a1`, 2026-09-12). The criteria
+  below stay unchecked until verification is recorded (UNPROVEN as of
+  2026-10-22).
+
 - **Goal:** Create the internal staff workflow for inquiry review, qualification, assignment, and internal notes.
 - **Pinned Unigreen baseline:** `069aed0630f3d121cdf28bec03f68bc99cfb8123`
 - **Scope:** Full-stack (FastAPI backend + Next.js staff admin frontend)

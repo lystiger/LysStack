@@ -14,9 +14,14 @@ scheduling, and agent execution. LysStack is not a runtime scheduler.
 6. Run `Hermes --dry-run`.
 7. Require `DRY_RUN_READY`.
 8. Run the real Hermes sprint.
-9. BUILDER implements the acceptance criteria.
-10. HARDENER reviews and optionally fixes concrete defects.
-11. VERIFIER independently evaluates without changing product source.
+9. BUILDER phases implement the acceptance criteria.
+10. HARDENER phases review and optionally fix concrete defects.
+11. VERIFIER and SECURITY phases evaluate without changing product source; a
+    failed verdict fails the sprint.
+
+Each phase's role comes from the sprint spec. Roles can repeat, and phases
+that share a `parallel_group` (with disjoint `owned_paths`) run at the same
+time. Hermes merges a parallel group all or nothing.
 12. Hermes executes deterministic verification.
 13. Hermes produces `READY_FOR_REVIEW`.
 14. Human inspects the diff, handoffs, verification, and agent evidence.
