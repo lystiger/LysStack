@@ -8,8 +8,10 @@ it contains no product source code.
 Hermes is the execution runtime. It takes a brief, runs the sprint's phases
 against a product repository, and records job and task state and run evidence.
 Each phase has a role (BUILDER, HARDENER, VERIFIER or SECURITY) set in the
-sprint spec; roles belong to phases, not to agents. LysControl presents Hermes
-through its REST/SSE API and shows each job's phases by role on a run timeline.
+sprint spec; roles belong to phases, not to agents. LysControl, the console in
+Hermes-lab's `console/` folder, presents Hermes through its REST/SSE API and
+shows each job's phases by role on a run timeline. The standalone LysControl
+repository is archived.
 
 ```text
 Human
