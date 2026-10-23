@@ -7,6 +7,23 @@ Status: **open** (not fixed), **fixed** (link the fix), **workaround** (avoided,
 
 ## Entries
 
+### E5 — AGENTS.md and .env.example disagreed, and the repair deleted useful defaults · open
+- **When:** 2026-10-23, job `run_20261023_201042_160f5253` (PR #3).
+- **What:** AGENTS.md rule 2 says `.env.example` holds "names only, no values", but it shipped with
+  non-secret defaults (feed URLs, `NODE_FUNCTION_ALLOW_BUILTIN=crypto`). Codex flagged the mismatch; the
+  repair emptied every value and tightened the repository test to forbid values, losing defaults the
+  owner needs on the VM.
+- **Cause:** the scaffold (written by Claude in this session) contradicted itself, as in E3.
+- **Next:** say in AGENTS.md that non-secret defaults are allowed and secrets never are, restore the
+  defaults, and keep the test strict about secrets only.
+
+### E4 — A retry overwrites the previous attempt's logs · open
+- **When:** 2026-10-23, same job. The first repair attempt (`repair_T4_verify_1`, Claude) exited with
+  code 1 and an empty message; Hermes retried and the retry succeeded.
+- **What:** run logs are named `<task>_<agent>_stdout.log` with no attempt number, so the retry wrote
+  over the failed attempt's logs and the cause of the exit cannot be found.
+- **Next:** Hermes-lab: include the attempt number in run log names.
+
 ### E3 — A contradiction in a skill made repairs go back and forth until the job blocked · fixed
 - **When:** 2026-10-23, job `run_20261023_195607_efa39646` (forum thread routing).
 - **What:** the `monitoring` skill asked the notifier both to fail the run on a failed send and to count
