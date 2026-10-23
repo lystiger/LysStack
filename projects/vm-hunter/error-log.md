@@ -7,6 +7,21 @@ Status: **open** (not fixed), **fixed** (link the fix), **workaround** (avoided,
 
 ## Entries
 
+### E3 — A contradiction in a skill made repairs go back and forth until the job blocked · fixed
+- **When:** 2026-10-23, job `run_20261023_195607_efa39646` (forum thread routing).
+- **What:** the `monitoring` skill asked the notifier both to fail the run on a failed send and to count
+  that failure in its static data. n8n does not save static data from a failed run, so both cannot hold.
+  Claude alternated between "fail and lose the counter" and "succeed and hide the failure"; Codex
+  rejected each correctly; the job blocked after 3 repair cycles ("Verification failed after 3 repair
+  cycles ... a 429 followed by a failed retry still loses the rateLimited increment").
+- **Cause:** the skill (written by Claude in this session), not the agents or Hermes. The thread routing,
+  new kinds and missing-thread error all passed review.
+- **Fix:** the skill now says a failing run cannot count itself; failures are counted by the error
+  workflow, and a lost `rateLimited` increment on a failed run is accepted. The job is re-run.
+- **Hermes lesson (open):** repairs cannot tell "the spec contradicts itself" from "the fix is
+  incomplete". When re-checks keep returning the same finding, Hermes could stop early and ask the
+  owner instead of spending the remaining cycles.
+
 ### E2 — A blocked job's good work has no way forward but by hand · open
 - **When:** 2026-10-23, job `run_20261023_181921_8a249caf` (roadmap step 1).
 - **What:** the job blocked only because one check was unproven (E1); its code was correct. A blocked
