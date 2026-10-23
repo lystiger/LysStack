@@ -13,4 +13,10 @@ Each step is one Hermes goal job, smallest first. Each must pass the repository 
 5. **VM setup guide.** How Lystiger installs the pinned n8n on their VM, sets the environment, and
    imports the workflows. Lystiger runs it; agents do not.
 
+6. **Monitoring.** Counters in every workflow, the daily summary line, and the immediate alerts from the
+   `monitoring` skill (D12). Steps 3 and 4 record their counters from the start; this step adds the
+   summaries and alerts and fills any gaps.
+
+Before step 3: route notifications to the forum thread (D11).
+
 Later: more providers (one skill each), Telegram, a weekly summary.

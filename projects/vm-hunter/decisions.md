@@ -15,6 +15,14 @@
 | D9 | A cost guard runs before every create request: free shape only, within the free limits. | A bug must not be able to cost money. |
 | D10 | Claim polling waits at least 60 seconds between attempts, with jitter, and stops after success. | Respect provider limits and avoid account flags. |
 
+## 2026-10-23 — Discord forum and monitoring
+
+| # | Decision | Why |
+|---|---|---|
+| D11 | The webhook posts into a Discord **forum**, so every message names a thread (`thread_id`). One room for now (`HUNTER_DISCORD_THREAD_ID`); optional per-kind rooms (`HUNTER_DISCORD_THREAD_OFFERS`, `_CLAIMS`, `_FAILURES`, `_SUMMARY`) fall back to it. | Discord rejects forum posts without a thread; Lystiger will add rooms later. |
+| D12 | Monitoring as proposed: each workflow counts its outcomes in its static data, posts its own daily summary line at 09:00 (local), and reports alert conditions at once. The thresholds are in the `monitoring` skill. | Static data is per workflow, so no workflow can read another's counters. |
+| D13 | No outside heartbeat service (healthchecks.io skipped). A dead n8n or VM stays silent; the missing 09:00 summary is the signal. | Lystiger's choice: no extra external service. |
+
 ## Open questions
 
 - **O1 — Signing Oracle requests inside n8n.** The plan is a Code node using Node's `crypto`, which needs

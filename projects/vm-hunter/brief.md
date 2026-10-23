@@ -27,6 +27,7 @@ requests, and imported into the VM's n8n by Lystiger.
 - A new offer is reported once, with its source link, and never again.
 - Every failure of a workflow reaches Discord, so a silent stop is impossible.
 - Every workflow passes the repository's checks before it is merged.
+- Lystiger gets one daily summary line per workflow at 09:00; a missing line means something is down.
 
 ## Out of scope
 
