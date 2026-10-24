@@ -7,6 +7,19 @@ Status: **open** (not fixed), **fixed** (link the fix), **workaround** (avoided,
 
 ## Entries
 
+### E9 — Claimer passed every check but would crash on the real n8n · fixed
+- **When:** 2026-10-24, job `run_20261024_174103_d72ce714` (roadmap step 4, PR #5).
+- **What:** both signing Code nodes used `new URL(base).host`. The n8n 1.123.87 Code node sandbox has no
+  `URL` global, so every attempt would have failed with `ReferenceError: URL is not defined` before its
+  first request. Builder, reviewer, verifier and `./scripts/check` all passed.
+- **Cause:** the tests run Code node source under plain node, which has globals the sandbox lacks; the
+  local n8n check only imports workflows, it never runs one.
+- **Fix:** vm-hunter `d523616` on PR #5: parse the host by hand, a test against `new URL(`, and the
+  sandbox limits in the n8n-workflow skill. Then checked end to end on the pinned image against a fake
+  OCI server that verifies every signature: list paging, launch, out of capacity, claim.
+- **Next:** make `./scripts/check` execute each workflow's Code nodes inside the pinned n8n against
+  fixtures, not only import them. That would have caught this and E7's notify bug.
+
 ### E8 — A research-only task failed as "no file changes" until the job blocked · workaround
 - **When:** 2026-10-24, job `run_20261024_172948_48e2f30c` (roadmap step 4, Oracle claimer).
 - **What:** the goal asked the job to settle O1 "in your result". The planner made it a separate task
