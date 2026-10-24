@@ -7,6 +7,15 @@ Status: **open** (not fixed), **fixed** (link the fix), **workaround** (avoided,
 
 ## Entries
 
+### E10 — First live claim attempt hit the tenancy's A1 limit · fixed
+- **When:** 2026-10-25, first deploy of the claimer on the owner's VM.
+- **What:** Oracle answered HTTP 400 `LimitExceeded`: this Free Tier tenancy allows 2 OCPU and 12 GB of A1,
+  not the 4/24 the brief and skill assumed. The claimer stopped correctly, but the only way to restart
+  it was to reset n8n static data by hand. Signing and the API key worked on the first try.
+- **Cause:** the brief, skill and job fixed the size at 4/24, and nothing could check a real tenancy.
+- **Fix:** vm-hunter PR #6: the size comes from `HUNTER_OCI_A1_OCPUS` / `HUNTER_OCI_A1_MEMORY_GB`, and a
+  stop is lifted when the settings change.
+
 ### E9 — Claimer passed every check but would crash on the real n8n · fixed
 - **When:** 2026-10-24, job `run_20261024_174103_d72ce714` (roadmap step 4, PR #5).
 - **What:** both signing Code nodes used `new URL(base).host`. The n8n 1.123.87 Code node sandbox has no
