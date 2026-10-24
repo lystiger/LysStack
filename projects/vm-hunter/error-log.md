@@ -7,6 +7,19 @@ Status: **open** (not fixed), **fixed** (link the fix), **workaround** (avoided,
 
 ## Entries
 
+### E8 — A research-only task failed as "no file changes" until the job blocked · workaround
+- **When:** 2026-10-24, job `run_20261024_172948_48e2f30c` (roadmap step 4, Oracle claimer).
+- **What:** the goal asked the job to settle O1 "in your result". The planner made it a separate task
+  that said "Do not change any files", but ran it as a builder task. Hermes fails a builder task with no
+  file changes (`FAILED_NO_CHANGES`), so all four attempts failed and the job blocked after 3 replans.
+  The agent also could not answer: Context7 needs OAuth, and WebFetch and WebSearch were denied.
+- **Cause:** Hermes has no task kind for research that ends in a written answer; the planner can create
+  a no-change task that the runtime is sure to fail. Agents have no documentation access.
+- **Workaround:** the operator settled O1 by running the pinned n8n (D14), updated the skill and
+  relaunched without the research request.
+- **Hermes fix wanted:** let the planner mark a task as research (its result is the deliverable, no
+  diff required), or forbid no-change tasks in plans.
+
 ### E7 — Offer watcher passed every check but would have found nothing in production · fixed
 - **When:** 2026-10-24, job `run_20261024_154936_a7d5bf57` (roadmap step 3, PR #4).
 - **What:** two defects survived the builder, the reviewer, the verifier and `./scripts/check`:

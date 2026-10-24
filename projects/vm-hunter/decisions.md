@@ -23,10 +23,12 @@
 | D12 | Monitoring as proposed: each workflow counts its outcomes in its static data, posts its own daily summary line at 09:00 (local), and reports alert conditions at once. The thresholds are in the `monitoring` skill. | Static data is per workflow, so no workflow can read another's counters. |
 | D13 | No outside heartbeat service (healthchecks.io skipped). A dead n8n or VM stays silent; the missing 09:00 summary is the signal. | Lystiger's choice: no extra external service. |
 
+## 2026-10-24 — Signing settled
+
+| # | Decision | Why |
+|---|---|---|
+| D14 | O1 settled: Oracle requests are signed in a Code node with `require('crypto')`; the VM sets `NODE_FUNCTION_ALLOW_BUILTIN=crypto`. | Tested on the pinned n8n 1.123.87: RSA-SHA256 signing works with the setting and fails with `Cannot find module 'crypto'` without it. |
+
 ## Open questions
 
-- **O1 — Signing Oracle requests inside n8n.** The plan is a Code node using Node's `crypto`, which needs
-  `NODE_FUNCTION_ALLOW_BUILTIN=crypto`, with the key passed in by environment variable. The first claim
-  job should confirm this works on the pinned n8n version, or propose the alternative (the OCI CLI in a
-  custom n8n image).
 - **O2 — Which n8n version to pin** for the local check environment and the VM. Set by the first job.
