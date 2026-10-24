@@ -7,6 +7,22 @@ Status: **open** (not fixed), **fixed** (link the fix), **workaround** (avoided,
 
 ## Entries
 
+### E7 — Offer watcher passed every check but would have found nothing in production · fixed
+- **When:** 2026-10-24, job `run_20261024_154936_a7d5bf57` (roadmap step 3, PR #4).
+- **What:** two defects survived the builder, the reviewer, the verifier and `./scripts/check`:
+  1. The free-for-dev fixture invented the headings `## Hosting` and `## Servers`; the real README has
+     `Major Cloud Providers`, `IaaS`, `PaaS` and `Web Hosting`. The watcher would parse 0 offers and post a
+     "No offers parsed" alert every day.
+  2. The Execute Workflow nodes used the default mode (`once`), but notify-discord sends only its first
+     input item, so when one run raised several alerts, only the first reached Discord.
+- **Cause:** agents run without network access, so "a trimmed copy of the real README" became a
+  hand-written guess, and the tests only checked the code against that guess. Nothing told agents
+  that notify-discord handles one item per call.
+- **Fix:** vm-hunter PR #4 commit by Claude: real headings (checked against the live README, 131 offers
+  parsed), `mode: each` on every notify call, and a test for it.
+- **Next:** when a fixture must copy a live source, the operator records it before the job, or the job
+  says the fixture is a guess. Add "one message per call" to the notify-discord skill.
+
 ### E6 — Fixture task given to Antigravity, which cannot run commands headless; replans kept picking it · workaround
 - **When:** 2026-10-24, job `run_20261024_154526_1f6b0e28` (roadmap step 3, offer watcher).
 - **What:** the planner gave `record_source_fixtures` to Antigravity. Headless Antigravity auto-denies every
