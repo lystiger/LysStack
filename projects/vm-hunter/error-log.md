@@ -7,15 +7,28 @@ Status: **open** (not fixed), **fixed** (link the fix), **workaround** (avoided,
 
 ## Entries
 
-### E5 — AGENTS.md and .env.example disagreed, and the repair deleted useful defaults · open
+### E6 — Fixture task given to Antigravity, which cannot run commands headless; replans kept picking it · workaround
+- **When:** 2026-10-24, job `run_20261024_154526_1f6b0e28` (roadmap step 3, offer watcher).
+- **What:** the planner gave `record_source_fixtures` to Antigravity. Headless Antigravity auto-denies every
+  command not on an allowlist (`permission check failed for unsandboxed "find tests -maxdepth 4"`), so each
+  attempt ended `FAILED_NO_CHANGES`. All three replans assigned Antigravity again, and the job blocked with
+  "Exhausted maximum allowed replans (3)". No other task ran.
+- **Cause:** the launch request omitted `excludeAgents` (operator error; earlier jobs passed
+  `["antigravity", "gemini"]`). Hermes also does not switch agents after a permission denial, and has no
+  safe default when `allowedCommands` is empty.
+- **Workaround:** relaunched with `excludeAgents: ["antigravity", "gemini"]`.
+- **Hermes fix wanted:** exclude Antigravity by default when `allowedCommands` is empty, or move a task to
+  another agent when its run reports denied commands.
+
+### E5 — AGENTS.md and .env.example disagreed, and the repair deleted useful defaults · fixed
 - **When:** 2026-10-23, job `run_20261023_201042_160f5253` (PR #3).
 - **What:** AGENTS.md rule 2 says `.env.example` holds "names only, no values", but it shipped with
   non-secret defaults (feed URLs, `NODE_FUNCTION_ALLOW_BUILTIN=crypto`). Codex flagged the mismatch; the
   repair emptied every value and tightened the repository test to forbid values, losing defaults the
   owner needs on the VM.
 - **Cause:** the scaffold (written by Claude in this session) contradicted itself, as in E3.
-- **Next:** say in AGENTS.md that non-secret defaults are allowed and secrets never are, restore the
-  defaults, and keep the test strict about secrets only.
+- **Fix:** vm-hunter `b3efcf0` (merged with PR #3): AGENTS.md allows non-secret defaults and never
+  secrets, the defaults are restored, and the test stays strict about secrets only.
 
 ### E4 — A retry overwrites the previous attempt's logs · open
 - **When:** 2026-10-23, same job. The first repair attempt (`repair_T4_verify_1`, Claude) exited with
