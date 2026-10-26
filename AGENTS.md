@@ -49,8 +49,7 @@ exactly these four roles (`builder`, `hardener`, `verifier`, `security`).
 - **Lystiger (the human):** reviews the integration diff, handoffs, deterministic checks, and
   verifier assessment, then decides whether to promote.
 
-Current preferred workers: BUILDER runs on Antigravity, HARDENER on Claude,
-VERIFIER on Codex. This is a default for writing specs, not a binding: Hermes
+No role has a default agent: a spec or orchestrator picks one per phase. Hermes
 records which agent ran each phase, and LysControl shows the role on the phase,
 never as a fixed label on the agent.
 
