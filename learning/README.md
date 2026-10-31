@@ -28,3 +28,4 @@ One line per session: date, topic, what Lystiger can now do on their own, and wh
 
 | Date | Topic | Can now do alone | Next |
 |---|---|---|---|
+| 2026-10-31 | Requirements for the test script (P13–P28) | Compare trade-offs and choose; spot when a feature overlaps the flow and remove it; fail closed | Check the flagged choices in the spec, then run A-vs-B (P8, P19) |
